@@ -1,3 +1,28 @@
 module.exports = function check(str, bracketsConfig) {
-  // your solution
+  const stack = [];
+  for(i=0;i<str.length;i++) {
+   
+      if(str[i] == '(' || str[i] == '{' || str[i] == '[' ){
+          stack.push(str[i]);
+      }
+  
+      if((str[i] == ')') && str[i-1] == '(')
+      {
+          stack.pop();   
+      }
+      
+      if((str[i] == '}') && str[i-1] == '{')
+      {
+          stack.pop();   
+      }
+
+      
+      if((str[i] == ']') && str[i-1] == '[')
+      {
+          stack.pop();   
+      }
+  }
+  if(stack.length == 0){
+      return true;
+  } return false;
 }
